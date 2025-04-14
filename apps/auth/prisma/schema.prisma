@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-js"
+  provider = "prisma-client-js"
   output   = "../../../node_modules/@prisma-clients/auth"
 }
 
@@ -10,6 +10,7 @@ datasource db {
 
 model User {
   id       Int    @id @default(autoincrement())
+  uuid     String @unique @default(uuid())
   email    String @unique
   password String
 }
