@@ -39,6 +39,7 @@
       }
     },
     "test": {
+      "dependsOn": ["generate-types"],
       "options": {
         "passWithNoTests": true
       }
