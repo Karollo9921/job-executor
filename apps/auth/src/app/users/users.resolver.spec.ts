@@ -1,7 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
+import { PrismaService } from '../prisma/prisma.service';
+
 import { UsersResolver } from './users.resolver';
 import { UsersService } from './users.service';
-import { PrismaService } from '../prisma/prisma.service';
 
 describe('UsersResolver', () => {
   let resolver: UsersResolver;

@@ -1,3 +1,5 @@
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import importPlugin from 'eslint-plugin-import';
 import nx from '@nx/eslint-plugin';
 
 export default [
@@ -36,7 +38,26 @@ export default [
       '**/*.cjs',
       '**/*.mjs',
     ],
-    // Override or add rules here
-    rules: {},
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+      import: importPlugin,
+    },
+    rules: {
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            ['^\\u0000'],
+            ['^@?\\w'],
+            ['^@job-executor-v2/'],
+            ['^\\.\\.(?!/?$)', '^\\./(?=.*/)(?!/?$)', '^\\./?$'],
+          ],
+        },
+      ],
+      'simple-import-sort/exports': 'error',
+      'import/first': 'error',
+      'import/newline-after-import': 'error',
+      'import/no-duplicates': 'error',
+    },
   },
 ];
