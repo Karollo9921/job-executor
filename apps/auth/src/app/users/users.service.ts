@@ -13,6 +13,12 @@ export class UsersService {
     return this.prismaService.user.findMany();
   }
 
+  async findUser(args: Prisma.UserWhereUniqueInput): Promise<User & { password: string }> {
+    return this.prismaService.user.findUniqueOrThrow({
+      where: args,
+    });
+  }
+
   async createUser(payload: Prisma.UserCreateInput): Promise<User> {
     return this.prismaService.user.create({
       data: { ...payload, password: await hash(payload.password, 10) },
