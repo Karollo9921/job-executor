@@ -47,12 +47,12 @@ export class AuthService {
       const authenticated = await compare(password, user.password);
 
       if (!authenticated) {
-        throw new UnauthorizedException();
+        throw new UnauthorizedException('Credentials are invalid');
       }
 
       return user;
     } catch (error) {
-      throw new UnauthorizedException('Credentials are invalid');
+      throw new UnauthorizedException(error);
     }
   }
 }
