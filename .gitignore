@@ -43,3 +43,6 @@ Thumbs.db
 
 #envs
 **/.env
+
+#nx
+.nx
