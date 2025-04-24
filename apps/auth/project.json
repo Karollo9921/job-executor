@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": ["generate-types"]
+      "dependsOn": ["generate-types", "generate-ts-proto"]
     },
     "serve": {
       "executor": "@nx/js:node",
@@ -42,6 +42,12 @@
       "dependsOn": ["generate-types"],
       "options": {
         "passWithNoTests": true
+      }
+    },
+    "generate-ts-proto": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ./generate-proto.sh"
       }
     }
   }
