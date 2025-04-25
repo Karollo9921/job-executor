@@ -13,6 +13,9 @@
         "inputs": [
           "{workspaceRoot}/proto/*.proto"
         ],
+        "outputs": [
+          "{workspaceRoot}/types/**"
+        ],
         "cache": true
       }
     }
