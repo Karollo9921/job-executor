@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": ["generate-types", "generate-ts-proto"]
+      "dependsOn": ["generate-prisma", "generate-ts-proto"]
     },
     "serve": {
       "executor": "@nx/js:node",
@@ -25,21 +25,23 @@
         }
       }
     },
-    "generate-types": {
+    "generate-prisma": {
       "command": "prisma generate",
       "options": {
-        "cwd": "apps/auth"
-      }
+        "cwd": "{projectRoot}",
+        "input": ["prisma/schema.prisma"]
+      },
+      "cache": true
     },
     "migrate-prisma": {
       "executor": "nx:run-commands",
       "options": {
         "command": "npx prisma migrate dev --name=${args.name} --schema=prisma/schema.prisma",
-        "cwd": "apps/auth"
+        "cwd": "{projectRoot}"
       }
     },
     "test": {
-      "dependsOn": ["generate-types"],
+      "dependsOn": ["generate-prisma"],
       "options": {
         "passWithNoTests": true
       }
