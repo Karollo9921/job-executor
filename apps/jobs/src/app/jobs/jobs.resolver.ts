@@ -1,4 +1,7 @@
+import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+
+import { GqlAuthGuard } from '@job-executor-v2/nestjs';
 
 import { ExecuteJobInput } from './dto/execute-job.input';
 import { JobsService } from './jobs.service';
@@ -9,7 +12,9 @@ export class JobsResolver {
   constructor(private readonly jobsService: JobsService) {}
 
   @Query(() => [Job])
+  @UseGuards(GqlAuthGuard)
   async getJobs() {
+    console.log('get jobs');
     return this.jobsService.getJobs();
   }
 
