@@ -6,9 +6,9 @@ import { AUTH_PACKAGE_NAME } from 'types/proto/auth';
 
 import { PulsarModule } from '@job-executor-v2/pulsar';
 
-import { FibonacciJob } from './fibonacci/fibonacci.job';
 import { JobsResolver } from './jobs.resolver';
 import { JobsService } from './jobs.service';
+import { FibonacciJob } from './jobs/fibonacci/fibonacci.job';
 
 @Module({
   imports: [

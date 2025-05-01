@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { IJobMetadata } from '../../interfaces/job-metadata.interface';
+import { IJobMetadata } from '../interfaces/job-metadata.interface';
 
 @ObjectType()
 export class Job implements IJobMetadata {
