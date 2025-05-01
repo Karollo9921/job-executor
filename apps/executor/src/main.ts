@@ -12,7 +12,7 @@ import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const port = app.get(ConfigService).getOrThrow('JOBS_PORT');
+  const port = app.get(ConfigService).getOrThrow('EXECUTOR_PORT');
 
   await init(app, port);
 }

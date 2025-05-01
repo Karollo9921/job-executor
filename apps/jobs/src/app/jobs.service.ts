@@ -35,7 +35,7 @@ export class JobsService implements OnModuleInit {
       throw new InternalServerErrorException(`Job ${name} is not a valid job`);
     }
 
-    await job.discoveredClass.instance.execute({}, job.meta.name);
+    await job.discoveredClass.instance.execute({ iterations: 3 }, job.meta.name);
 
     return job.meta;
   }

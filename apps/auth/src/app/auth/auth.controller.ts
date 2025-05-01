@@ -20,7 +20,6 @@ export class AuthController implements AuthServiceController {
   authenticate(
     request: AuthenticateRequest & { user: ITokenPayload }
   ): Promise<User> | Observable<User> | User {
-    console.log(request);
     return this.usersService.findUser({ id: request.user.userId });
   }
 }

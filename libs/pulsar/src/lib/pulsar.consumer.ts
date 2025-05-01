@@ -1,8 +1,9 @@
+import { OnModuleInit } from '@nestjs/common';
 import { Consumer, Message } from 'pulsar-client';
 
 import { PulsarClient } from './pulsar.client';
 
-export abstract class PulsarConsumer {
+export abstract class PulsarConsumer implements OnModuleInit {
   private consumer!: Consumer;
 
   protected constructor(
@@ -11,6 +12,7 @@ export abstract class PulsarConsumer {
   ) {}
 
   async onModuleInit() {
+    console.log('Fibonacci consumer initialized');
     this.consumer = await this.pulsarClient.createConsumer(this.topic, this.onMessage.bind(this));
   }
 

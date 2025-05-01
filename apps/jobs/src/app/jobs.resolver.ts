@@ -14,7 +14,7 @@ export class JobsResolver {
   @Query(() => [Job])
   @UseGuards(GqlAuthGuard)
   async getJobs() {
-    console.log('get jobs');
+    console.log('get job-consumers');
     return this.jobsService.getJobs();
   }
 
