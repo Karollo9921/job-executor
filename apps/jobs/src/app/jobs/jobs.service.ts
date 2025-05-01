@@ -26,7 +26,7 @@ export class JobsService implements OnModuleInit {
       throw new BadRequestException(`Job ${name} does not exists`);
     }
 
-    await (job.discoveredClass.instance as AbstractJob).execute();
+    await (job.discoveredClass.instance as AbstractJob).execute({}, job.meta.name);
 
     return job.meta;
   }
