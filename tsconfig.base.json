@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@job-executor-v2/nestjs": ["libs/nestjs/src/index.ts"],
-      "@job-executor-v2/pulsar": ["libs/pulsar/src/index.ts"]
+      "@job-executor-v2/pulsar": ["libs/pulsar/src/index.ts"],
+      "@job-executor-v2/shared-types": ["libs/shared-types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

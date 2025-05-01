@@ -25,7 +25,7 @@ export class JobsService implements OnModuleInit {
     return this.jobs.map((job) => job.meta);
   }
 
-  async executeJob(name: string): Promise<Job> {
+  async executeJob(name: string, data: object): Promise<Job> {
     const job = this.jobs.find((job) => job.meta.name === name);
     if (!job) {
       throw new BadRequestException(`Job ${name} does not exists`);
@@ -35,7 +35,7 @@ export class JobsService implements OnModuleInit {
       throw new InternalServerErrorException(`Job ${name} is not a valid job`);
     }
 
-    await job.discoveredClass.instance.execute({ iterations: 3 }, job.meta.name);
+    await job.discoveredClass.instance.execute(data, job.meta.name);
 
     return job.meta;
   }
