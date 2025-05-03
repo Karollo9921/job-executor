@@ -1,9 +1,10 @@
-const AUTH_API_URL = 'http://localhost:30800/graphql';
+const AUTH_API_URL = 'http://localhost:3000/graphql';
 
 const LOGIN_MUTATION = `
   mutation Login($loginInput: LoginInput!) {
-    login(input: $loginInput) {
+    login(loginInput: $loginInput) {
       id
+      uuid
     }
   }
 `;
@@ -11,7 +12,7 @@ const LOGIN_MUTATION = `
 const JOBS_API_URL = 'http://localhost:3001/graphql';
 
 const EXECUTE_JOB_MUTATION = `
-  mutation ExecuteJob(executeJobInput: ExecuteJobInput!) {
+  mutation ExecuteJob($executeJobInput: ExecuteJobInput!) {
     executeJob(executeJobInput: $executeJobInput) {
       name
     }
@@ -47,9 +48,7 @@ async function executeJobWithInput(executeJobInput, cookies) {
     },
     body: JSON.stringify({
       query: EXECUTE_JOB_MUTATION,
-      variables: {
-        loginInput: { executeJobInput },
-      },
+      variables: { executeJobInput },
     }),
   });
 
@@ -66,11 +65,11 @@ async function executeJobWithInput(executeJobInput, cookies) {
     const executeJobInput = {
       name: 'Fibonacci',
       data: Array.from({ length: n }, () => ({
-        iteration: Math.floor(Math.random() * 5000) + 1,
+        iterations: Math.floor(Math.random() * 5000) + 1,
       })),
     };
     const data = await executeJobWithInput(executeJobInput, cookies);
-    console.log(data);
+    console.dir(data, { depth: null });
   } else {
     console.error('Login failed');
   }
