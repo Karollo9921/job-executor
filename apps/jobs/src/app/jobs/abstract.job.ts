@@ -36,7 +36,9 @@ export abstract class AbstractJob<T extends object> {
     const errors = await validate(plainToInstance(this.messageClass, data));
 
     if (errors.length > 0) {
-      throw new BadRequestException(`Job's data is invalid: ${JSON.stringify(errors)}`);
+      throw new BadRequestException(
+        `Job's data is invalid: ${JSON.stringify(errors)}`
+      );
     }
 
     return true;

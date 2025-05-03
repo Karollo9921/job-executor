@@ -6,7 +6,8 @@
     "start": "nx run-many -t serve -p auth jobs executor",
     "lint:fix": "nx run-many --target=lint --all --fix",
     "prepare": "husky",
-    "generate-ts-proto": "bash ./generate-proto.sh"
+    "generate-ts-proto": "bash ./generate-proto.sh",
+    "format": "prettier . --write"
   },
   "nx": {
     "targets": {

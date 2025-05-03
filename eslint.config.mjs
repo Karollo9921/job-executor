@@ -46,7 +46,12 @@ export default [
       'simple-import-sort/imports': [
         'error',
         {
-          groups: [['^\\u0000'], ['^@?\\w'], ['^@job-executor-v2/'], ['^[^./]']],
+          groups: [
+            ['^\\u0000'],
+            ['^@?\\w'],
+            ['^@job-executor-v2/'],
+            ['^[^./]'],
+          ],
         },
       ],
       'simple-import-sort/exports': 'error',

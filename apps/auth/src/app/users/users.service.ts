@@ -13,7 +13,9 @@ export class UsersService {
     return this.prismaService.user.findMany();
   }
 
-  async findUser(args: Prisma.UserWhereUniqueInput): Promise<User & { password: string }> {
+  async findUser(
+    args: Prisma.UserWhereUniqueInput
+  ): Promise<User & { password: string }> {
     return this.prismaService.user.findUniqueOrThrow({
       where: args,
     });

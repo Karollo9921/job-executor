@@ -23,7 +23,11 @@
       "cache": true
     },
     "build": {
-      "inputs": ["{projectRoot}/**/*", "{workspaceRoot}/lib/**/*", "{workspaceRoot}/proto/*"],
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/lib/**/*",
+        "{workspaceRoot}/proto/*"
+      ],
       "options": {
         "assets": [
           {
@@ -57,7 +61,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/auth-e2e/**/*", "apps/jobs-e2e/**/*", "apps/executor-e2e/**/*"]
+      "exclude": [
+        "apps/auth-e2e/**/*",
+        "apps/jobs-e2e/**/*",
+        "apps/executor-e2e/**/*"
+      ]
     }
   ]
 }

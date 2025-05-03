@@ -7,5 +7,7 @@ export async function init(app: INestApplication, port: number): Promise<void> {
   app.setGlobalPrefix(globalPrefix);
   app.use(cookieParser());
   await app.listen(port);
-  Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);
+  Logger.log(
+    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
+  );
 }

@@ -11,7 +11,10 @@ export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
 
   @Mutation(() => User)
-  async login(@Args('loginInput') payload: LoginInput, @Context() ctx: IGqlContext) {
+  async login(
+    @Args('loginInput') payload: LoginInput,
+    @Context() ctx: IGqlContext
+  ) {
     return this.authService.login(payload, ctx.res);
   }
 }

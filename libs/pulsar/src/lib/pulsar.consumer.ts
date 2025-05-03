@@ -6,7 +6,9 @@ import { deserialize } from './serialize';
 
 export abstract class PulsarConsumer<T> implements OnModuleInit {
   private consumer!: Consumer;
-  protected readonly logger = new Logger(`PulsarConsumer on topic: ${this.topic}`);
+  protected readonly logger = new Logger(
+    `PulsarConsumer on topic: ${this.topic}`
+  );
 
   protected constructor(
     private readonly pulsarClient: PulsarClient,
@@ -15,7 +17,10 @@ export abstract class PulsarConsumer<T> implements OnModuleInit {
 
   async onModuleInit() {
     console.log('Fibonacci consumer initialized');
-    this.consumer = await this.pulsarClient.createConsumer(this.topic, this.listener.bind(this));
+    this.consumer = await this.pulsarClient.createConsumer(
+      this.topic,
+      this.listener.bind(this)
+    );
   }
 
   protected async acknowledgeMessage(message: Message): Promise<void> {

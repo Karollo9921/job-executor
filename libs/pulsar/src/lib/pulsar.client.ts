@@ -25,7 +25,9 @@ export class PulsarClient implements OnModuleDestroy {
   async createProducer(topic: string): Promise<Producer> {
     const producer = await this.client.createProducer({ topic });
 
-    const foundProducer = this.producers.find((p) => p.getTopic() === producer.getTopic());
+    const foundProducer = this.producers.find(
+      (p) => p.getTopic() === producer.getTopic()
+    );
 
     if (foundProducer) {
       return foundProducer;
@@ -36,8 +38,15 @@ export class PulsarClient implements OnModuleDestroy {
     return producer;
   }
 
-  async createConsumer(topic: string, listener: (message: Message) => void): Promise<Consumer> {
-    const consumer = await this.client.subscribe({ topic, subscription: 'jobber', listener });
+  async createConsumer(
+    topic: string,
+    listener: (message: Message) => void
+  ): Promise<Consumer> {
+    const consumer = await this.client.subscribe({
+      topic,
+      subscription: 'jobber',
+      listener,
+    });
     this.consumers.push(consumer);
 
     return consumer;

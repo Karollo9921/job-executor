@@ -58,7 +58,10 @@ async function executeJobWithInput(executeJobInput, cookies) {
 }
 
 (async () => {
-  const { data: loginData, cookies } = await login('karol.kluba89@gmail.com', 'Password123!');
+  const { data: loginData, cookies } = await login(
+    'karol.kluba89@gmail.com',
+    'Password123!'
+  );
   if (loginData.data.login.id) {
     const n = 10;
     console.log(`Executing Fibonacci with n = ${n}`);

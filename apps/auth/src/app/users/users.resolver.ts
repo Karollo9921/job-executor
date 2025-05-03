@@ -14,13 +14,17 @@ export class UsersResolver {
 
   @UseGuards(GqlAuthGuard)
   @Query(() => [User], { name: 'users' })
-  async findUsers(@currentUser() { userId, userUuid }: ITokenPayload): Promise<User[]> {
+  async findUsers(
+    @currentUser() { userId, userUuid }: ITokenPayload
+  ): Promise<User[]> {
     console.log(userId, userUuid);
     return this.usersService.findUsers();
   }
 
   @Mutation(() => User)
-  async createUser(@Args('createUserInput') payload: CreateUserInput): Promise<User> {
+  async createUser(
+    @Args('createUserInput') payload: CreateUserInput
+  ): Promise<User> {
     return this.usersService.createUser(payload);
   }
 }

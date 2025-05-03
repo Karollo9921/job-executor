@@ -1,4 +1,7 @@
-import { DiscoveredClassWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
+import {
+  DiscoveredClassWithMeta,
+  DiscoveryService,
+} from '@golevelup/nestjs-discovery';
 import {
   BadRequestException,
   Injectable,
@@ -18,7 +21,10 @@ export class JobsService implements OnModuleInit {
   constructor(private readonly discoveryService: DiscoveryService) {}
 
   async onModuleInit(): Promise<void> {
-    this.jobs = await this.discoveryService.providersWithMetaAtKey<IJobMetadata>(JOB_METADATA_KEY);
+    this.jobs =
+      await this.discoveryService.providersWithMetaAtKey<IJobMetadata>(
+        JOB_METADATA_KEY
+      );
   }
 
   getJobs(): Job[] {

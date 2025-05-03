@@ -22,7 +22,8 @@ export class AuthService {
 
     const expires = new Date();
     expires.setMilliseconds(
-      expires.getTime() + parseInt(this.configService.getOrThrow('AUTH_JWT_EXPIRATION_MS'))
+      expires.getTime() +
+        parseInt(this.configService.getOrThrow('AUTH_JWT_EXPIRATION_MS'))
     );
 
     const tokenPayload: ITokenPayload = {
