@@ -1,7 +1,7 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { GqlAuthGuard } from '@job-executor-v2/nestjs';
+import { GqlAuthGuard } from '@job-executor-v2/graphql';
 
 import { ExecuteJobInput } from './dto/execute-job.input';
 import { JobsService } from './jobs.service';

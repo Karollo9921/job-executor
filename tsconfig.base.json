@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@job-executor-v2/graphql": ["libs/graphql/src/index.ts"],
+      "@job-executor-v2/grpc": ["libs/grpc/src/index.ts"],
       "@job-executor-v2/nestjs": ["libs/nestjs/src/index.ts"],
+      "@job-executor-v2/prisma": ["libs/prisma/src/index.ts"],
       "@job-executor-v2/pulsar": ["libs/pulsar/src/index.ts"],
       "@job-executor-v2/shared-types": ["libs/shared-types/src/index.ts"]
     }

@@ -1,6 +1,6 @@
 import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
 
-import { IGqlContext } from '@job-executor-v2/nestjs';
+import { IGqlContext } from '@job-executor-v2/graphql';
 
 import { User } from '../users/models/user.model';
 import { AuthService } from './auth.service';
